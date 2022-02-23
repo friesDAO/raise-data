@@ -3,6 +3,7 @@ const web3 = new Web3()
 const fromWei = web3.utils.fromWei
 import fetch from "node-fetch"
 import fs from "fs"
+const BN = n => new web3.utils.BN(n)
 const config = JSON.parse(fs.readFileSync("./config.json"))
 
 fetch(`https://api.etherscan.io/api?module=logs&action=getLogs&fromBlock=${config.nftPhases[0].startBlock}&toBlock=latest&address=${config.usdc}&topic0=${config.purchaseTopic}&topic2=${config.treasuryTopic}&apikey=${config.etherscanAPI}`).then(res => res.json()).then(logs => {
@@ -65,8 +66,12 @@ fetch(`https://api.etherscan.io/api?module=logs&action=getLogs&fromBlock=${confi
         fs.writeFileSync("./data/allContributions.json", JSON.stringify(contributions))
         fs.writeFileSync("./data/allAddresses.json", JSON.stringify(Object.keys(contributions)))
 
+        const totalRaised = Object.values(contributions).reduce((acc, amount) => acc + amount, 0)
+
         const raiseStats = {
-            totalRaised: Object.values(contributions).reduce((acc, amount) => acc + amount, 0),
+            totalRaised: totalRaised,
+            raiseAllocationFries18: BN(totalRaised * 1e6).mul(BN(config.raisePrice)).div(BN(10).pow(BN(6))).toString(),
+            raiseAllocationFries: BN(totalRaised * 1e6).mul(BN(config.raisePrice)).div(BN(10).pow(BN(24))).toString(),
             uniqueAddresses: Object.keys(contributions).length,
             nft: filteredContributions.map((contributionPhase) => ({
                 amount: Object.keys(contributionPhase).length
