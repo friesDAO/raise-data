@@ -1,0 +1,25 @@
+{
+  "name": "data",
+  "version": "1.0.0",
+  "description": "friesdao data calcs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/friesDAO/data.git"
+  },
+  "author": "slip1244",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/friesDAO/data/issues"
+  },
+  "homepage": "https://github.com/friesDAO/data#readme",
+  "dependencies": {
+    "node-fetch": "^3.2.0",
+    "web3": "^1.7.0"
+  }
+}

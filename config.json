@@ -1,0 +1,22 @@
+{
+    "nftPhases": [
+        {
+            "name": "pre-release",
+            "amount": 200,
+            "startBlock": 14104538,
+            "cutoff": 0
+        },
+        {
+            "name": "limited edition",
+            "amount": 350,
+            "startBlock": 14153700,
+            "cutoff": 5000
+        }
+    ],
+    "usdc": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "sale": "0x437A28214cBeCFb51188b6CA2A3998Df28fb5678",
+    "etherscanAPI": "FZ1MKV339VKCUDQTMK1GESXZNA8Y9MA8P4",
+    "purchaseTopic": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+    "treasuryTopic": "0x0000000000000000000000007163bee2a0a4c75d1236bf053e429f86eb45426e",
+    "ignoredTxs": ["0x18cd271b4709f6373421dc88f2d3e30b11ac7ca7a891776a0f67ac466952813a", "0x35b69c260fbe05966445a28560a5b4614f44ef033fbacc8ea124b71001f9f68e", "0x36ef2b6d7d95f320eb7211e7cb152313c5042f7604651fa2eaa4c8ae4d7b7b80"]
+}
